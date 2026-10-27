@@ -1,4 +1,4 @@
-# SAAA 會議桌牌自動化生成與維護系統 (Meeting Tent Card Skill)
+# SAAA 會議桌牌自動化生成與維護系統 (SAAA Meeting Tent Card Skill)
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -63,7 +63,7 @@
 ## 目錄結構
 
 ```text
-meeting-tent-card/
+saaa-meeting-tent-card/
 ├── SKILL.md                            # Agent Skill 規範文件
 ├── README.md                           # GitHub 專案說明文件
 ├── .gitignore                          # Git 忽略配置
@@ -82,12 +82,17 @@ meeting-tent-card/
 ## 快速開始與使用教學
 
 ### 方式 1：作為 Antigravity Agent Skill 使用
-已安裝至 `~/.gemini/config/skills/meeting-tent-card`。在對話中直接指示 Agent 即可：
+已安裝至 `~/.gemini/config/skills/saaa-meeting-tent-card`。在對話中直接指示 Agent 即可：
 > 「請根據這份名單幫我產出 25 位貴賓的會議桌牌 docx，並在最後留 2 張空白備用。」
 > 「幫我把桌牌第 5 頁的職稱改成『候用校長』。」
 > 「檢查這份會議桌牌.docx，幫我匯出所有貴賓清單到 Excel。」
 
 ### 方式 2：使用 Python 獨立命令列 (CLI)
+
+```bash
+git clone https://github.com/SAAA-ntcu/saaa-meeting-tent-card.git
+cd saaa-meeting-tent-card
+```
 
 #### 1. 從名冊檔案批次生成桌牌（支援 `.xlsx`, `.csv`, `.tsv`, `.json`）
 ```bash

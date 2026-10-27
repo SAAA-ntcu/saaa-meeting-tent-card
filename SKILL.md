@@ -1,9 +1,9 @@
 ---
-name: meeting-tent-card
+name: saaa-meeting-tent-card
 description: "Generate, inspect, modify, and export professional Taiwan A4 4-fold triangular meeting tent cards (會議桌牌 / 立體桌牌 / 桌上名牌) in Word (.docx). Use this skill when the user wants to create meeting tent cards from participant lists/Excel/CSV/text, inspect existing tent card docx files, add/modify participants, or customize event headers and branding."
 ---
 
-# 會議桌牌生成與維護助手 (Meeting Tent Card Skill)
+# 會議桌牌生成與維護助手 (SAAA Meeting Tent Card Skill)
 
 專門用於自動化製作與維護臺灣學術研討會、政府機關審查會、公務會議標準 **A4 四折式立體三角會議桌牌（Tent Card / Name Tent / 桌上名牌）**。
 
@@ -65,12 +65,12 @@ description: "Generate, inspect, modify, and export professional Taiwan A4 4-fol
 ## 常用指令與操作方式
 
 核心引擎路徑：
-`~/.gemini/config/skills/meeting-tent-card/scripts/tent_card_engine.py`
+`~/.gemini/config/skills/saaa-meeting-tent-card/scripts/tent_card_engine.py`
 
 ### 1. 從名冊檔案批次生成桌牌
 支援 Excel (`.xlsx`)、CSV、TSV、JSON 或純文字檔：
 ```powershell
-python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" generate `
+python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" generate `
   -i "C:\path\to\attendees.xlsx" `
   -o "C:\path\to\會議桌牌_output.docx" `
   -b 2
@@ -79,7 +79,7 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
 ### 2. 直接在對話中貼上名單生成（極速模式）
 直接使用 `-r` 參數傳入字串（支援 `\n`、分號、直線 `|` 或逗號）：
 ```powershell
-python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" generate `
+python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" generate `
   -r "國立臺灣大學 心理學系 | 陳台大 | 講座教授\n國立政治大學 教育學院 | 李政大 | 院長\n臺北市政府教育局 | 王小華 | 督學" `
   -o "C:\path\to\今日會議桌牌.docx" `
   -b 2
@@ -88,7 +88,7 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
 ### 3. 更換活動抬頭與主辦單位名稱
 若要套用至不同研討會或主辦單位：
 ```powershell
-python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" generate `
+python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" generate `
   -i "C:\path\to\roster.csv" `
   -o "C:\path\to\研討會桌牌.docx" `
   --event-title "2026年全國教育創新研討會" `
@@ -98,14 +98,14 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
 ### 4. 檢測現有桌牌檔案內容
 快速檢查 docx 內共有多少位貴賓、頁碼與名冊：
 ```powershell
-python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" inspect `
+python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" inspect `
   -f "C:\Users\adminn\Downloads\會議桌牌.docx"
 ```
 
 ### 5. 修改特定人員資訊（免重新排版）
 * **依頁碼修改**（例如修改第 5 頁）：
   ```powershell
-  python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" update `
+  python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" update `
     -f "C:\path\to\會議桌牌.docx" `
     -p 5 `
     -u "新北市政府教育局中等教育科" `
@@ -114,7 +114,7 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
   ```
 * **依姓名搜尋修改**（例如更換職稱）：
   ```powershell
-  python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" update `
+  python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" update `
     -f "C:\path\to\會議桌牌.docx" `
     -m "張善貿" `
     -t "特聘教授"
@@ -122,7 +122,7 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
 
 ### 6. 臨時追加新貴賓（自動插入在空白備用頁之前）
 ```powershell
-python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" append `
+python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" append `
   -f "C:\path\to\會議桌牌.docx" `
   -u "國家教育研究院 測驗及評量研究中心" `
   -n "陳建宏" `
@@ -131,7 +131,7 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
 
 ### 7. 將既有桌牌名冊反向匯出為 Excel 或 CSV
 ```powershell
-python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_card_engine.py" export `
+python "C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\scripts\tent_card_engine.py" export `
   -f "C:\Users\adminn\Downloads\會議桌牌.docx" `
   -o "C:\path\to\與會名冊.xlsx"
 ```
@@ -155,7 +155,7 @@ python "C:\Users\adminn\.gemini\config\skills\meeting-tent-card\scripts\tent_car
 ## 檔案結構說明
 
 ```
-C:\Users\adminn\.gemini\config\skills\meeting-tent-card\
+C:\Users\adminn\.gemini\config\skills\saaa-meeting-tent-card\
 ├── SKILL.md                            # Skill 指引與規範文檔
 ├── templates/
 │   └── template_a4_tent.docx           # 單頁 Master 模板（萃取自標準原始檔，內含向量圖與樣式）
@@ -164,5 +164,5 @@ C:\Users\adminn\.gemini\config\skills\meeting-tent-card\
 └── examples/
     ├── sample_roster.csv               # 範例名冊 (CSV)
     ├── sample_roster.xlsx              # 範例名冊 (Excel)
-    └── test_generated_cards.docx       # 實測生成之完整桌牌 docx
+    └── sample_cards_output.docx        # 實測生成之完整桌牌 docx
 ```
