@@ -170,7 +170,13 @@ class TentCardEngine:
         u_lines = self.split_unit_text(unit_str)
         # Format name + title
         if name_str and title_str:
-            full_name_title = f"{name_str} {title_str}" if len(name_str) <= 3 and len(title_str) <= 4 and ' ' not in name_str else f"{name_str}{title_str}"
+            # In official Taiwan SAAA meeting tent cards, Chinese name and title are concatenated without space
+            # to fit the prominent 54pt (sz=108) layout (e.g. 楊智為助理教授, 黃瑋臻課程督學).
+            # For Western/English names or when explicit space exists, preserve space separation.
+            if any(ord(c) < 128 and c.isalpha() for c in name_str):
+                full_name_title = f"{name_str} {title_str}"
+            else:
+                full_name_title = f"{name_str}{title_str}"
         elif name_str:
             full_name_title = name_str
         else:
